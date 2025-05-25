@@ -1,6 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
 import dotenv from 'dotenv';
-
+import os from 'os';
 // Load environment variables
 dotenv.config({ path: `.env.${process.env.ENV || 'qa'}` });
 
@@ -26,7 +26,12 @@ const projects = [
 ];
 
 
+const cpuCount = os.cpus().length;
+
 export default defineConfig({
+  // Set the number of worker processes dynamically.
+  workers: cpuCount > 2 ? cpuCount - 1 : 1,
+  // Use the environment variable to set the browser type
   testDir: './tests',
   timeout: 30 * 1000,
   expect: {
@@ -43,4 +48,12 @@ export default defineConfig({
   },
   projects: projects,
   outputDir: 'test-results/',
+  // Advanced: Enable test sharding if needed.
+    // If running on CI, you can set environment variables like SHARD_TOTAL and SHARD_INDEX.
+    // Example: node playwright.config.ts --shard=2/0
+    shard: process.env.SHARD_TOTAL && process.env.SHARD_INDEX ? {
+        total: parseInt(process.env.SHARD_TOTAL, 10),
+        shard: parseInt(process.env.SHARD_INDEX, 10)
+    } : undefined,
+    
 });
