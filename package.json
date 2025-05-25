@@ -1,0 +1,17 @@
+{
+  "scripts": {
+    "test": "playwright test",
+    "test:qa:headed": "cross-env ENV=qa npx playwright test --headed",
+    "test:parallel": "playwright test --workers=4",
+    "test:report": "playwright show-report",
+    "test:qa": "cross-env ENV=qa npx playwright test",
+    "test:staging": "cross-env ENV=staging npx playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.43.0",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.0.3",
+    "pg": "^8.11.0",
+    "supertest": "^6.3.3"
+  }
+}
