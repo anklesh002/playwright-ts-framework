@@ -32,7 +32,7 @@ export default defineConfig({
   expect: {
     timeout: 5000
   },
-  reporter: [['html'], ['list'], 
+  reporter: [['html'], ['list'],["allure-playwright"]
   // ['@reportportal/agent-js-playwright']
 ],
   use: {
