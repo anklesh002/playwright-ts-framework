@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
-import { RecordPage } from '../../pageObjects/recordPage';
-import logger from '../../utils/logUtil';
+import { RecordPage } from '../../../pageObjects/recordPage';
+import logger from '../../../utils/logUtil';
 
 test('Record test', async ({ page }) => {
     logger.info('Starting Record Test');

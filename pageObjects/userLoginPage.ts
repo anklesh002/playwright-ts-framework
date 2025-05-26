@@ -5,14 +5,14 @@ export class LoginPage {
     readonly userName: Locator;
     readonly password: Locator;
     readonly loginButton: Locator;
-    readonly appLogo: Locator;
+    readonly adminUserButton: Locator;
 
     constructor(page: Page) {
         this.page = page;
-        this.userName = page.locator('#user-name');
-        this.password = page.locator('#password');
-        this.loginButton = page.locator('#login-button');
-        this.appLogo = page.locator('.app_logo');
+        this.userName = page.getByRole('textbox', { name: 'Enter email ID here' });
+        this.password = page.getByRole('textbox', { name: 'Enter password here' });
+        this.loginButton = page.getByRole('button', { name: 'Login', exact: true });
+        this.adminUserButton = page.getByRole('button', { name: 'H Default admin user' });        
     }
 
     async goto() {
@@ -34,7 +34,7 @@ export class LoginPage {
         await this.loginButton.click();
     }
 
-    async assertHomePAgeLogo(text: string) {
-        await expect(this.appLogo).toContainText(text);
+    async assertHomePageLogo() {
+        await expect(this.adminUserButton).toBeVisible();
     }
 }

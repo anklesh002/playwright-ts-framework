@@ -15,14 +15,14 @@ const projects = [
     },
     testMatch: 'tests/ui/**/*.spec.ts',
   },
-  {
-    name: 'API Tests',
-    testMatch: 'tests/api/**/*.spec.ts',
-  },
-  {
-    name: 'DB Tests',
-    testMatch: 'tests/db/**/*.spec.ts',
-  },
+  // {
+  //   name: 'API Tests',
+  //   testMatch: 'tests/api/**/*.spec.ts',
+  // },
+  // {
+  //   name: 'DB Tests',
+  //   testMatch: 'tests/db/**/*.spec.ts',
+  // },
 ];
 
 

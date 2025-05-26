@@ -1,7 +1,7 @@
-import { test } from '../../utils/hooks';
-import { config } from '../../config';
-import { LoginPage } from '../../pageObjects/loginPage';
-import logger from '../../utils/logUtil';
+import { test } from '../../../utils/hooks';
+import { config } from '../../../config';
+import { LoginPage } from '../../../pageObjects/loginPage';
+import logger from '../../../utils/logUtil';
 
 test('Login UI Test', { tag: ['@smoke', '@LoginFeature' ] }, async ({ page }) => {
   const loginPage = new LoginPage(page);
